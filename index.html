@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHINMAY ID CARD STORE</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial;background:#f2f5fa;color:#222}
+header{background:#172554;color:white;text-align:center;padding:28px 12px}
+header h1{margin:0;font-size:25px}
+header p{margin-bottom:0}
+.container{max-width:650px;margin:20px auto;padding:15px}
+.card{background:white;padding:20px;border-radius:12px;margin-bottom:15px;box-shadow:0 2px 10px #ddd}
+h2{color:#172554}
+input,select,textarea{width:100%;padding:12px;margin:8px 0 15px;border:1px solid #ccc;border-radius:7px}
+button{width:100%;padding:14px;background:#172554;color:white;border:0;border-radius:7px;font-size:17px}
+.price{font-weight:bold;color:#087443}
+footer{text-align:center;padding:20px;color:#666}
+</style>
+</head>
+<body>
+<header>
+<h1>CHINMAY ID CARD STORE</h1>
+<p>Your Custom Card Printing Store</p>
+</header>
+
+<div class="container">
+<div class="card">
+<h2>Our Card Services</h2>
+<p>Custom Photo Cards</p>
+<p>School & College ID Cards (with authorization)</p>
+<p>Company ID Cards (with authorization)</p>
+<p>Membership & Event Cards</p>
+<p>Custom Keychain Cards</p>
+</div>
+
+<div class="card">
+<h2>Place Your Order</h2>
+<form onsubmit="event.preventDefault();alert('This is a demo. Online ordering is not active yet.');">
+<label>Card Type</label>
+<select required>
+<option value="">Choose Card</option>
+<option>Custom Photo Card</option>
+<option>School / College ID</option>
+<option>Authorized Company ID</option>
+<option>Membership Card</option>
+<option>Event Card</option>
+<option>Keychain Card</option>
+</select>
+
+<label>Your Name</label>
+<input type="text" placeholder="Enter your name" required>
+
+<label>Mobile Number</label>
+<input type="tel" placeholder="Enter mobile number" required>
+
+<label>Quantity</label>
+<input type="number" min="1" value="1" required>
+
+<label>Card Details</label>
+<textarea placeholder="Enter card details"></textarea>
+
+<label>Upload Photo or Design</label>
+<input type="file" accept="image/*">
+
+<label>Delivery Address</label>
+<textarea placeholder="Enter delivery address"></textarea>
+
+<p class="price">Delivery Charge: ₹50</p>
+<label>Payment Method</label>
+<select>
+<option>Cash on Delivery</option>
+<option>Online Payment (coming soon)</option>
+</select>
+
+<button type="submit">Submit Demo Order</button>
+</form>
+</div>
+</div>
+
+<footer>
+<p>CHINMAY ID CARD STORE</p>
+<p>Custom Cards | Delivery Across India</p>
+</footer>
+</body>
+                 </html>
+                 
