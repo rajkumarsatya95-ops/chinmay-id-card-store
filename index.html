@@ -3,87 +3,160 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CHINMAY ID CARD STORE</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial;background:#f2f5fa;color:#222}
-header{background:#172554;color:white;text-align:center;padding:28px 12px}
-header h1{margin:0;font-size:25px}
-header p{margin-bottom:0}
-.container{max-width:650px;margin:20px auto;padding:15px}
-.card{background:white;padding:20px;border-radius:12px;margin-bottom:15px;box-shadow:0 2px 10px #ddd}
-h2{color:#172554}
-input,select,textarea{width:100%;padding:12px;margin:8px 0 15px;border:1px solid #ccc;border-radius:7px}
-button{width:100%;padding:14px;background:#172554;color:white;border:0;border-radius:7px;font-size:17px}
-.price{font-weight:bold;color:#087443}
+body{margin:0;background:#f1f3f6;font-family:Arial;color:#222}
+header{background:#172554;color:white;padding:20px;text-align:center}
+header h1{font-size:23px;margin:0}
+header p{margin:7px 0 0}
+.search{padding:14px;background:white}
+.search input{width:100%;padding:13px;border:1px solid #ddd;border-radius:8px}
+h2{font-size:20px;padding:0 13px}
+.products{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:12px}
+.product{background:white;border-radius:9px;padding:10px;box-shadow:0 1px 5px #ddd}
+.design{height:125px;border-radius:7px;color:white;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:bold;font-size:19px}
+.blue{background:linear-gradient(135deg,#102d65,#4a9ee8)}
+.gold{background:linear-gradient(135deg,#77511a,#e5b74c)}
+.green{background:linear-gradient(135deg,#075c48,#51b58a)}
+.purple{background:linear-gradient(135deg,#49216c,#a76dd3)}
+.red{background:linear-gradient(135deg,#8b2020,#e66b6b)}
+.dark{background:linear-gradient(135deg,#222,#777)}
+.product h3{font-size:15px;margin:10px 0}
+.product p{font-size:12px;color:#666}
+.price{font-weight:bold;color:#087443;margin:10px 0}
+button{width:100%;padding:11px;border:0;border-radius:6px;background:#ff9f00;color:white;font-weight:bold}
+.order{background:white;margin:14px;padding:16px;border-radius:10px}
+.order input,.order select,.order textarea{width:100%;padding:12px;margin:7px 0 14px;border:1px solid #ccc;border-radius:6px}
+.order button{background:#172554}
 footer{text-align:center;padding:20px;color:#666}
 </style>
 </head>
 <body>
 <header>
 <h1>CHINMAY ID CARD STORE</h1>
-<p>Your Custom Card Printing Store</p>
+<p>Choose Your Favourite Card Design</p>
 </header>
 
-<div class="container">
-<div class="card">
-<h2>Our Card Services</h2>
-<p>Custom Photo Cards</p>
-<p>School & College ID Cards (with authorization)</p>
-<p>Company ID Cards (with authorization)</p>
-<p>Membership & Event Cards</p>
-<p>Custom Keychain Cards</p>
+<div class="search">
+<input id="search" placeholder="Search cards..." oninput="filterCards()">
 </div>
 
-<div class="card">
+<h2>Popular Card Designs</h2>
+<div class="products">
+
+<div class="product" data-name="custom photo card">
+<div class="design blue">CUSTOM PHOTO<br>CARD</div>
+<h3>Custom Photo Card</h3>
+<p>Your own photo design</p>
+<div class="price">Price: Contact for price</div>
+<button onclick="choose('Custom Photo Card')">BUY NOW</button>
+</div>
+
+<div class="product" data-name="school college id">
+<div class="design gold">SCHOOL<br>ID CARD</div>
+<h3>School / College ID</h3>
+<p>Authorized institution cards</p>
+<div class="price">Price: Contact for price</div>
+<button onclick="choose('School / College ID')">BUY NOW</button>
+</div>
+
+<div class="product" data-name="company id">
+<div class="design dark">COMPANY<br>ID CARD</div>
+<h3>Company ID Card</h3>
+<p>For authorized employees</p>
+<div class="price">Price: Contact for price</div>
+<button onclick="choose('Company ID Card')">BUY NOW</button>
+</div>
+
+<div class="product" data-name="membership card">
+<div class="design purple">MEMBERSHIP<br>CARD</div>
+<h3>Membership Card</h3>
+<p>Custom membership design</p>
+<div class="price">Price: Contact for price</div>
+<button onclick="choose('Membership Card')">BUY NOW</button>
+</div>
+
+<div class="product" data-name="event card">
+<div class="design red">EVENT<br>CARD</div>
+<h3>Event Card</h3>
+<p>For events and functions</p>
+<div class="price">Price: Contact for price</div>
+<button onclick="choose('Event Card')">BUY NOW</button>
+</div>
+
+<div class="product" data-name="keychain card">
+<div class="design green">PHOTO<br>KEYCHAIN</div>
+<h3>Photo Keychain</h3>
+<p>Personalized keychain</p>
+<div class="price">Price: Contact for price</div>
+<button onclick="choose('Photo Keychain')">BUY NOW</button>
+</div>
+
+</div>
+
+<div class="order" id="order">
 <h2>Place Your Order</h2>
-<form onsubmit="event.preventDefault();alert('This is a demo. Online ordering is not active yet.');">
-<label>Card Type</label>
-<select required>
-<option value="">Choose Card</option>
+<form onsubmit="demo(event)">
+<label>Selected Card</label>
+<select id="card" required>
+<option value="">Choose card</option>
 <option>Custom Photo Card</option>
 <option>School / College ID</option>
-<option>Authorized Company ID</option>
+<option>Company ID Card</option>
 <option>Membership Card</option>
 <option>Event Card</option>
-<option>Keychain Card</option>
+<option>Photo Keychain</option>
 </select>
 
 <label>Your Name</label>
-<input type="text" placeholder="Enter your name" required>
+<input placeholder="Enter name" required>
 
 <label>Mobile Number</label>
-<input type="tel" placeholder="Enter mobile number" required>
+<input type="tel" placeholder="Mobile number" required>
 
 <label>Quantity</label>
 <input type="number" min="1" value="1" required>
 
-<label>Card Details</label>
-<textarea placeholder="Enter card details"></textarea>
-
-<label>Upload Photo or Design</label>
+<label>Upload Photo</label>
 <input type="file" accept="image/*">
 
-<label>Delivery Address</label>
-<textarea placeholder="Enter delivery address"></textarea>
+<label>Design Details</label>
+<textarea placeholder="Write your requirements"></textarea>
 
-<p class="price">Delivery Charge: ₹50</p>
+<label>Delivery Address</label>
+<textarea placeholder="Full address" required></textarea>
+
+<p><b>Delivery Charge: ₹50</b></p>
+
 <label>Payment Method</label>
 <select>
 <option>Cash on Delivery</option>
 <option>Online Payment (coming soon)</option>
 </select>
 
-<button type="submit">Submit Demo Order</button>
+<button type="submit">SUBMIT ORDER</button>
 </form>
 </div>
-</div>
 
-<footer>
-<p>CHINMAY ID CARD STORE</p>
-<p>Custom Cards | Delivery Across India</p>
-</footer>
+<footer>CHINMAY ID CARD STORE<br>Delivery Across India</footer>
+
+<script>
+function choose(name){
+document.getElementById('card').value=name;
+document.getElementById('order').scrollIntoView({behavior:'smooth'});
+}
+function filterCards(){
+let q=document.getElementById('search').value.toLowerCase();
+document.querySelectorAll('.product').forEach(p=>{
+p.style.display=p.dataset.name.includes(q)?'block':'none';
+});
+}
+function demo(e){
+e.preventDefault();
+alert('Demo only: Real order submission and payment are not active yet.');
+}
+</script>
 </body>
-                 </html>
-                 
+</html>
