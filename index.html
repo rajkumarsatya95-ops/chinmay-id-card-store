@@ -1,162 +1,113 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CHINMAY ID CARD STORE</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#f1f3f6;font-family:Arial;color:#222}
-header{background:#172554;color:white;padding:20px;text-align:center}
-header h1{font-size:23px;margin:0}
-header p{margin:7px 0 0}
-.search{padding:14px;background:white}
-.search input{width:100%;padding:13px;border:1px solid #ddd;border-radius:8px}
-h2{font-size:20px;padding:0 13px}
-.products{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:12px}
-.product{background:white;border-radius:9px;padding:10px;box-shadow:0 1px 5px #ddd}
-.design{height:125px;border-radius:7px;color:white;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:bold;font-size:19px}
-.blue{background:linear-gradient(135deg,#102d65,#4a9ee8)}
-.gold{background:linear-gradient(135deg,#77511a,#e5b74c)}
-.green{background:linear-gradient(135deg,#075c48,#51b58a)}
-.purple{background:linear-gradient(135deg,#49216c,#a76dd3)}
-.red{background:linear-gradient(135deg,#8b2020,#e66b6b)}
-.dark{background:linear-gradient(135deg,#222,#777)}
-.product h3{font-size:15px;margin:10px 0}
-.product p{font-size:12px;color:#666}
-.price{font-weight:bold;color:#087443;margin:10px 0}
-button{width:100%;padding:11px;border:0;border-radius:6px;background:#ff9f00;color:white;font-weight:bold}
-.order{background:white;margin:14px;padding:16px;border-radius:10px}
-.order input,.order select,.order textarea{width:100%;padding:12px;margin:7px 0 14px;border:1px solid #ccc;border-radius:6px}
-.order button{background:#172554}
-footer{text-align:center;padding:20px;color:#666}
+body{margin:0;font-family:Arial,sans-serif;background:#f1f4fa;color:#172033}
+header{background:#172554;color:white;text-align:center;padding:28px 12px}
+header h1{margin:0;font-size:27px}
+header p{margin:10px 0 0}
+.notice{text-align:center;padding:12px;background:#fff3cd;color:#765400}
+h2{text-align:center;margin:28px 0 18px}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;padding:15px;max-width:1100px;margin:auto}
+.product{background:white;padding:14px;border-radius:14px;box-shadow:0 3px 12px #0001;text-align:center}
+.card{height:145px;border-radius:10px;color:white;padding:15px;position:relative;overflow:hidden;text-align:left}
+.card h3{margin:0 0 12px;font-size:17px}
+.card p{margin:5px 0;font-size:12px}
+.watermark{position:absolute;right:8px;bottom:8px;font-size:23px;font-weight:bold;opacity:.35;transform:rotate(-15deg)}
+.c1{background:linear-gradient(120deg,#075985,#38bdf8)}
+.c2{background:linear-gradient(120deg,#581c87,#c084fc)}
+.c3{background:linear-gradient(120deg,#14532d,#4ade80)}
+.c4{background:linear-gradient(120deg,#9a3412,#fb923c)}
+.c5{background:linear-gradient(120deg,#1e3a8a,#60a5fa)}
+.c6{background:linear-gradient(120deg,#831843,#f472b6)}
+.c7{background:linear-gradient(120deg,#374151,#9ca3af)}
+.c8{background:linear-gradient(120deg,#713f12,#facc15)}
+.c9{background:linear-gradient(120deg,#134e4a,#2dd4bf)}
+.c10{background:linear-gradient(120deg,#312e81,#818cf8)}
+.price{font-weight:bold;color:#166534;font-size:18px}
+footer{background:#172554;color:white;text-align:center;padding:20px;margin-top:25px}
 </style>
 </head>
 <body>
+
 <header>
 <h1>CHINMAY ID CARD STORE</h1>
-<p>Choose Your Favourite Card Design</p>
+<p>Creative Decorative ID Card Designs</p>
 </header>
 
-<div class="search">
-<input id="search" placeholder="Search cards..." oninput="filterCards()">
+<div class="notice">
+सभी डिज़ाइन केवल SAMPLE / DEMO हैं। ये आधिकारिक पहचान-पत्र नहीं हैं।
 </div>
 
-<h2>Popular Card Designs</h2>
+<h2>हमारे 10 डिज़ाइन</h2>
+
 <div class="products">
 
-<div class="product" data-name="custom photo card">
-<div class="design blue">CUSTOM PHOTO<br>CARD</div>
-<h3>Custom Photo Card</h3>
-<p>Your own photo design</p>
-<div class="price">Price: Contact for price</div>
-<button onclick="choose('Custom Photo Card')">BUY NOW</button>
+<div class="product">
+<div class="card c1"><h3>SCHOOL STYLE</h3><p>Sample Student</p><p>Design No. 01</p><span class="watermark">SAMPLE</span></div>
+<h3>School ID Design</h3><p class="price">₹100</p>
 </div>
 
-<div class="product" data-name="school college id">
-<div class="design gold">SCHOOL<br>ID CARD</div>
-<h3>School / College ID</h3>
-<p>Authorized institution cards</p>
-<div class="price">Price: Contact for price</div>
-<button onclick="choose('School / College ID')">BUY NOW</button>
+<div class="product">
+<div class="card c2"><h3>COLLEGE STYLE</h3><p>Demo Student</p><p>Design No. 02</p><span class="watermark">SAMPLE</span></div>
+<h3>College ID Design</h3><p class="price">₹150</p>
 </div>
 
-<div class="product" data-name="company id">
-<div class="design dark">COMPANY<br>ID CARD</div>
-<h3>Company ID Card</h3>
-<p>For authorized employees</p>
-<div class="price">Price: Contact for price</div>
-<button onclick="choose('Company ID Card')">BUY NOW</button>
+<div class="product">
+<div class="card c3"><h3>COMPANY STYLE</h3><p>Demo Member</p><p>Design No. 03</p><span class="watermark">SAMPLE</span></div>
+<h3>Company ID Design</h3><p class="price">₹100</p>
 </div>
 
-<div class="product" data-name="membership card">
-<div class="design purple">MEMBERSHIP<br>CARD</div>
-<h3>Membership Card</h3>
-<p>Custom membership design</p>
-<div class="price">Price: Contact for price</div>
-<button onclick="choose('Membership Card')">BUY NOW</button>
+<div class="product">
+<div class="card c4"><h3>PERSONAL STYLE</h3><p>Creative Design</p><p>Design No. 04</p><span class="watermark">SAMPLE</span></div>
+<h3>Personal Stylish ID</h3><p class="price">₹250–₹350</p>
 </div>
 
-<div class="product" data-name="event card">
-<div class="design red">EVENT<br>CARD</div>
-<h3>Event Card</h3>
-<p>For events and functions</p>
-<div class="price">Price: Contact for price</div>
-<button onclick="choose('Event Card')">BUY NOW</button>
+<div class="product">
+<div class="card c5"><h3>BLUE MODERN</h3><p>Demo Profile</p><p>Design No. 05</p><span class="watermark">SAMPLE</span></div>
+<h3>Modern Blue Design</h3><p class="price">₹250–₹350</p>
 </div>
 
-<div class="product" data-name="keychain card">
-<div class="design green">PHOTO<br>KEYCHAIN</div>
-<h3>Photo Keychain</h3>
-<p>Personalized keychain</p>
-<div class="price">Price: Contact for price</div>
-<button onclick="choose('Photo Keychain')">BUY NOW</button>
+<div class="product">
+<div class="card c6"><h3>PINK CREATIVE</h3><p>Demo Profile</p><p>Design No. 06</p><span class="watermark">SAMPLE</span></div>
+<h3>Pink Creative Design</h3><p class="price">₹250–₹350</p>
+</div>
+
+<div class="product">
+<div class="card c7"><h3>GREY PREMIUM</h3><p>Demo Profile</p><p>Design No. 07</p><span class="watermark">SAMPLE</span></div>
+<h3>Grey Premium Design</h3><p class="price">₹250–₹350</p>
+</div>
+
+<div class="product">
+<div class="card c8"><h3>GOLDEN STYLE</h3><p>Demo Profile</p><p>Design No. 08</p><span class="watermark">SAMPLE</span></div>
+<h3>Golden Design</h3><p class="price">₹250–₹350</p>
+</div>
+
+<div class="product">
+<div class="card c9"><h3>GREEN MODERN</h3><p>Demo Profile</p><p>Design No. 09</p><span class="watermark">SAMPLE</span></div>
+<h3>Green Modern Design</h3><p class="price">₹250–₹350</p>
+</div>
+
+<div class="product">
+<div class="card c10"><h3>PURPLE STYLE</h3><p>Demo Profile</p><p>Design No. 10</p><span class="watermark">SAMPLE</span></div>
+<h3>Purple Stylish Design</h3><p class="price">₹250–₹350</p>
 </div>
 
 </div>
 
-<div class="order" id="order">
-<h2>Place Your Order</h2>
-<form onsubmit="demo(event)">
-<label>Selected Card</label>
-<select id="card" required>
-<option value="">Choose card</option>
-<option>Custom Photo Card</option>
-<option>School / College ID</option>
-<option>Company ID Card</option>
-<option>Membership Card</option>
-<option>Event Card</option>
-<option>Photo Keychain</option>
-</select>
+<h2>Delivery Charge: ₹50</h2>
+<p style="text-align:center">School: ₹150 total | College: ₹200 total</p>
+<p style="text-align:center">Company: ₹150 total | Personal Stylish: ₹300–₹400 total</p>
 
-<label>Your Name</label>
-<input placeholder="Enter name" required>
+<footer>
+<p>CHINMAY ID CARD STORE</p>
+<p>Decorative SAMPLE designs only</p>
+</footer>
 
-<label>Mobile Number</label>
-<input type="tel" placeholder="Mobile number" required>
-
-<label>Quantity</label>
-<input type="number" min="1" value="1" required>
-
-<label>Upload Photo</label>
-<input type="file" accept="image/*">
-
-<label>Design Details</label>
-<textarea placeholder="Write your requirements"></textarea>
-
-<label>Delivery Address</label>
-<textarea placeholder="Full address" required></textarea>
-
-<p><b>Delivery Charge: ₹50</b></p>
-
-<label>Payment Method</label>
-<select>
-<option>Cash on Delivery</option>
-<option>Online Payment (coming soon)</option>
-</select>
-
-<button type="submit">SUBMIT ORDER</button>
-</form>
-</div>
-
-<footer>CHINMAY ID CARD STORE<br>Delivery Across India</footer>
-
-<script>
-function choose(name){
-document.getElementById('card').value=name;
-document.getElementById('order').scrollIntoView({behavior:'smooth'});
-}
-function filterCards(){
-let q=document.getElementById('search').value.toLowerCase();
-document.querySelectorAll('.product').forEach(p=>{
-p.style.display=p.dataset.name.includes(q)?'block':'none';
-});
-}
-function demo(e){
-e.preventDefault();
-alert('Demo only: Real order submission and payment are not active yet.');
-}
-</script>
 </body>
 </html>
