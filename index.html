@@ -6,108 +6,162 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CHINMAY ID CARD STORE</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f1f4fa;color:#172033}
-header{background:#172554;color:white;text-align:center;padding:28px 12px}
-header h1{margin:0;font-size:27px}
-header p{margin:10px 0 0}
-.notice{text-align:center;padding:12px;background:#fff3cd;color:#765400}
-h2{text-align:center;margin:28px 0 18px}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;padding:15px;max-width:1100px;margin:auto}
-.product{background:white;padding:14px;border-radius:14px;box-shadow:0 3px 12px #0001;text-align:center}
-.card{height:145px;border-radius:10px;color:white;padding:15px;position:relative;overflow:hidden;text-align:left}
-.card h3{margin:0 0 12px;font-size:17px}
-.card p{margin:5px 0;font-size:12px}
-.watermark{position:absolute;right:8px;bottom:8px;font-size:23px;font-weight:bold;opacity:.35;transform:rotate(-15deg)}
-.c1{background:linear-gradient(120deg,#075985,#38bdf8)}
-.c2{background:linear-gradient(120deg,#581c87,#c084fc)}
-.c3{background:linear-gradient(120deg,#14532d,#4ade80)}
-.c4{background:linear-gradient(120deg,#9a3412,#fb923c)}
-.c5{background:linear-gradient(120deg,#1e3a8a,#60a5fa)}
-.c6{background:linear-gradient(120deg,#831843,#f472b6)}
-.c7{background:linear-gradient(120deg,#374151,#9ca3af)}
-.c8{background:linear-gradient(120deg,#713f12,#facc15)}
-.c9{background:linear-gradient(120deg,#134e4a,#2dd4bf)}
-.c10{background:linear-gradient(120deg,#312e81,#818cf8)}
-.price{font-weight:bold;color:#166534;font-size:18px}
-footer{background:#172554;color:white;text-align:center;padding:20px;margin-top:25px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f1f3f6;color:#222}
+header{background:#2874f0;color:white;padding:15px;position:sticky;top:0;z-index:5}
+.top{max-width:1100px;margin:auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{font-size:21px;font-weight:bold}
+.search{flex:1;min-width:150px;padding:12px;border:0;border-radius:5px}
+button{border:0;padding:11px 15px;border-radius:5px;cursor:pointer;font-weight:bold}
+.cartbtn{background:white;color:#2874f0}
+.banner{background:linear-gradient(120deg,#123c28,#3c9b62);color:white;text-align:center;padding:35px 15px}
+.banner h1{font-size:27px;margin-bottom:10px}
+.banner p{line-height:1.6}
+.container{max-width:1100px;margin:20px auto;padding:0 12px}
+.heading{font-size:21px;margin:20px 0}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:14px}
+.card{background:white;border-radius:8px;padding:12px;box-shadow:0 1px 5px #ddd}
+.photo{height:155px;background:linear-gradient(135deg,#d7f5d8,#668b62);display:flex;align-items:center;justify-content:center;border-radius:6px;margin-bottom:12px;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:contain}
+.sample{background:white;border:2px solid #2874f0;border-radius:8px;padding:10px;text-align:center;width:85%;font-size:12px}
+.sample strong{display:block;font-size:15px;margin:8px}
+.demo{color:#e53935;font-weight:bold}
+.card h3{font-size:15px;margin:8px 0}
+.price{font-size:18px;font-weight:bold;margin:8px 0}
+.small{font-size:12px;color:#777}
+.add{background:#ff9f00;color:white;width:100%;margin-top:9px}
+.buy{background:#fb641b;color:white;width:100%;margin-top:7px}
+.panel{background:white;padding:18px;border-radius:8px;margin-top:20px}
+.panel h2{margin-bottom:15px}
+.cartitem{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid #ddd}
+.checkout input,.checkout textarea{width:100%;padding:12px;margin:7px 0;border:1px solid #ccc;border-radius:5px}
+.green{background:#168a45;color:white;width:100%;margin-top:10px}
+footer{text-align:center;background:#172337;color:white;padding:22px;margin-top:35px}
+.hidden{display:none}
+.notice{background:#fff3cd;padding:12px;border-radius:6px;margin:15px 0;font-size:13px}
+@media(max-width:450px){.logo{font-size:17px}.banner h1{font-size:22px}}
 </style>
 </head>
 <body>
 
 <header>
-<h1>CHINMAY ID CARD STORE</h1>
-<p>Creative Decorative ID Card Designs</p>
+<div class="top">
+<div class="logo">CHINMAY STORE</div>
+<input class="search" id="search" placeholder="ID Card खोजें..." oninput="showProducts()">
+<button class="cartbtn" onclick="openCart()">🛒 Cart (<span id="count">0</span>)</button>
+</div>
 </header>
 
-<div class="notice">
-सभी डिज़ाइन केवल SAMPLE / DEMO हैं। ये आधिकारिक पहचान-पत्र नहीं हैं।
+<section class="banner">
+<h1>CHINMAY ID CARD STORE</h1>
+<p>आपकी पसंद के सुंदर SAMPLE ID CARD डिज़ाइन<br>आसान Shopping • आसान Ordering</p>
+</section>
+
+<div class="container">
+<div class="notice">सभी डिज़ाइन केवल SAMPLE / DEMO हैं। ये आधिकारिक पहचान-पत्र या असली पहचान के प्रमाण नहीं हैं।</div>
+<h2 class="heading">हमारे ID Card डिज़ाइन</h2>
+<div class="products" id="products"></div>
+
+<div class="panel hidden" id="cart">
+<h2>🛒 आपका Cart</h2>
+<div id="cartItems"></div>
+<p style="margin-top:15px">Delivery Charge: ₹50</p>
+<h3 id="total" style="margin-top:10px"></h3>
+<button class="buy" onclick="showCheckout()">Order Now</button>
+<button style="margin-top:8px;background:#ddd" onclick="closeCart()">Shopping जारी रखें</button>
 </div>
 
-<h2>हमारे 10 डिज़ाइन</h2>
-
-<div class="products">
-
-<div class="product">
-<div class="card c1"><h3>SCHOOL STYLE</h3><p>Sample Student</p><p>Design No. 01</p><span class="watermark">SAMPLE</span></div>
-<h3>School ID Design</h3><p class="price">₹100</p>
+<div class="panel hidden checkout" id="checkout">
+<h2>📦 Checkout</h2>
+<p>केवल SAMPLE / DEMO डिज़ाइन ऑर्डर के लिए।</p>
+<input id="customer" placeholder="आपका नाम">
+<input id="phone" type="tel" placeholder="मोबाइल नंबर">
+<textarea id="address" placeholder="पूरा Delivery Address"></textarea>
+<h3 id="checkoutTotal"></h3>
+<button class="green" onclick="placeOrder()">Order WhatsApp पर भेजें</button>
+<p class="small">WhatsApp नंबर दुकान के मालिक द्वारा सेट करना बाकी है।</p>
 </div>
-
-<div class="product">
-<div class="card c2"><h3>COLLEGE STYLE</h3><p>Demo Student</p><p>Design No. 02</p><span class="watermark">SAMPLE</span></div>
-<h3>College ID Design</h3><p class="price">₹150</p>
 </div>
-
-<div class="product">
-<div class="card c3"><h3>COMPANY STYLE</h3><p>Demo Member</p><p>Design No. 03</p><span class="watermark">SAMPLE</span></div>
-<h3>Company ID Design</h3><p class="price">₹100</p>
-</div>
-
-<div class="product">
-<div class="card c4"><h3>PERSONAL STYLE</h3><p>Creative Design</p><p>Design No. 04</p><span class="watermark">SAMPLE</span></div>
-<h3>Personal Stylish ID</h3><p class="price">₹250–₹350</p>
-</div>
-
-<div class="product">
-<div class="card c5"><h3>BLUE MODERN</h3><p>Demo Profile</p><p>Design No. 05</p><span class="watermark">SAMPLE</span></div>
-<h3>Modern Blue Design</h3><p class="price">₹250–₹350</p>
-</div>
-
-<div class="product">
-<div class="card c6"><h3>PINK CREATIVE</h3><p>Demo Profile</p><p>Design No. 06</p><span class="watermark">SAMPLE</span></div>
-<h3>Pink Creative Design</h3><p class="price">₹250–₹350</p>
-</div>
-
-<div class="product">
-<div class="card c7"><h3>GREY PREMIUM</h3><p>Demo Profile</p><p>Design No. 07</p><span class="watermark">SAMPLE</span></div>
-<h3>Grey Premium Design</h3><p class="price">₹250–₹350</p>
-</div>
-
-<div class="product">
-<div class="card c8"><h3>GOLDEN STYLE</h3><p>Demo Profile</p><p>Design No. 08</p><span class="watermark">SAMPLE</span></div>
-<h3>Golden Design</h3><p class="price">₹250–₹350</p>
-</div>
-
-<div class="product">
-<div class="card c9"><h3>GREEN MODERN</h3><p>Demo Profile</p><p>Design No. 09</p><span class="watermark">SAMPLE</span></div>
-<h3>Green Modern Design</h3><p class="price">₹250–₹350</p>
-</div>
-
-<div class="product">
-<div class="card c10"><h3>PURPLE STYLE</h3><p>Demo Profile</p><p>Design No. 10</p><span class="watermark">SAMPLE</span></div>
-<h3>Purple Stylish Design</h3><p class="price">₹250–₹350</p>
-</div>
-
-</div>
-
-<h2>Delivery Charge: ₹50</h2>
-<p style="text-align:center">School: ₹150 total | College: ₹200 total</p>
-<p style="text-align:center">Company: ₹150 total | Personal Stylish: ₹300–₹400 total</p>
 
 <footer>
-<p>CHINMAY ID CARD STORE</p>
-<p>Decorative SAMPLE designs only</p>
+<h3>CHINMAY ID CARD STORE</h3>
+<p style="margin-top:8px">Sample Designs Only • Demo Store</p>
 </footer>
 
+<script>
+const products=[
+{name:"School ID Card Design",price:100},
+{name:"College ID Card Design",price:150},
+{name:"Company ID Card Design",price:100},
+{name:"Personal Stylish Card",price:250},
+{name:"Premium ID Card Design",price:300},
+{name:"Lanyard ID Card Design",price:150},
+{name:"Modern Card Design",price:200},
+{name:"Classic ID Card Design",price:150},
+{name:"Front & Back Sample",price:200},
+{name:"Special ID Card Design",price:350}
+];
+let cart=[];
+
+function cardDesign(p){
+return `<div class="sample">
+<div class="demo">SAMPLE / DEMO</div>
+<strong>${p}</strong>
+<div>FICTIONAL NAME</div>
+<div>DEMO • NOT VALID</div>
+</div>`;
+}
+
+function showProducts(){
+let q=document.getElementById("search").value.toLowerCase();
+document.getElementById("products").innerHTML=products.map((p,i)=>{
+if(!p.name.toLowerCase().includes(q))return "";
+return `<div class="card">
+<div class="photo">${cardDesign(p.name)}</div>
+<h3>${p.name}</h3>
+<div class="small">Fictional sample design</div>
+<div class="price">₹${p.price}</div>
+<button class="add" onclick="addCart(${i})">Add to Cart</button>
+<button class="buy" onclick="addAndBuy(${i})">Order Now</button>
+</div>`;
+}).join("");
+}
+
+function addCart(i){cart.push(i);updateCount();alert("Product Cart में जुड़ गया!");}
+function addAndBuy(i){cart.push(i);updateCount();openCart();}
+function updateCount(){document.getElementById("count").innerText=cart.length;}
+function openCart(){
+document.getElementById("cart").classList.remove("hidden");
+document.getElementById("checkout").classList.add("hidden");
+renderCart();
+document.getElementById("cart").scrollIntoView({behavior:"smooth"});
+}
+function closeCart(){document.getElementById("cart").classList.add("hidden");}
+function renderCart(){
+let html=cart.map((i,n)=>`<div class="cartitem">
+<div>${products[i].name}<br>₹${products[i].price}</div>
+<button onclick="removeItem(${n})">Remove</button>
+</div>`).join("");
+document.getElementById("cartItems").innerHTML=html||"आपका Cart खाली है।";
+let sum=cart.reduce((s,i)=>s+products[i].price,0);
+document.getElementById("total").innerText="Total: ₹"+(sum+(cart.length?50:0));
+}
+function removeItem(n){cart.splice(n,1);updateCount();renderCart();}
+function showCheckout(){
+if(!cart.length){alert("पहले Product चुनें");return;}
+document.getElementById("checkout").classList.remove("hidden");
+let sum=cart.reduce((s,i)=>s+products[i].price,0)+50;
+document.getElementById("checkoutTotal").innerText="कुल भुगतान: ₹"+sum;
+document.getElementById("checkout").scrollIntoView({behavior:"smooth"});
+}
+function placeOrder(){
+let name=document.getElementById("customer").value.trim();
+let phone=document.getElementById("phone").value.trim();
+let address=document.getElementById("address").value.trim();
+if(!name||!phone||!address){alert("कृपया सभी जानकारी भरें");return;}
+alert("Order भेजने के लिए दुकान का WhatsApp नंबर अभी वेबसाइट में जोड़ना बाकी है।");
+}
+showProducts();
+</script>
 </body>
 </html>
